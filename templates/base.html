@@ -1,0 +1,93 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Fallou City</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="custom-navbar navbar navbar-expand-md navbar-dark">
+    <div class="container">
+
+        <a class="navbar-brand d-flex align-items-center" href="{% url 'home' %}">
+            <img src="{% static 'images/logo.png' %}" class="logo me-2">
+            <span class="fw-bold">Fallou City</span>
+        </a>
+
+        <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="menu">
+            <ul class="navbar-nav ms-auto text-center">
+                <li><a class="nav-link" href="{% url 'home' %}">Accueil</a></li>
+                <li><a class="nav-link" href="{% url 'proprietes' %}">Propriétés</a></li>
+                <!-- ✅ CORRECTION ICI -->
+                <li><a class="nav-link" href="{% url 'services' %}">Services</a></li>
+                <li><a class="nav-link" href="{% url 'contact' %}">Contact</a></li>
+            </ul>
+        </div>
+
+    </div>
+</nav>
+
+{% block content %}
+{% endblock %}
+
+<!-- FOOTER (inchangé) -->
+<footer class="bg-dark text-light pt-5 pb-3 mt-5">
+  <div class="container">
+    <div class="row text-center text-md-start">
+
+      <div class="col-md-4 mb-4">
+        <h5 class="fw-bold">Fallou City</h5>
+        <p>
+          Votre partenaire immobilier de confiance.  
+          Achat, vente et location de biens au Sénégal.
+        </p>
+      </div>
+
+      <div class="col-md-4 mb-4">
+        <h5 class="fw-bold">Liens rapides</h5>
+        <ul class="list-unstyled">
+          <li><a href="{% url 'home' %}" class="text-light text-decoration-none">Accueil</a></li>
+          <li><a href="{% url 'proprietes' %}" class="text-light text-decoration-none">Propriétés</a></li>
+          <!-- ✅ CORRECTION ICI -->
+          <li><a href="{% url 'services' %}" class="text-light text-decoration-none">Services</a></li>
+          <li><a href="{% url 'contact' %}" class="text-light text-decoration-none">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="col-md-4 mb-4">
+        <h5 class="fw-bold">Contact</h5>
+        <p><i class="fas fa-map-marker-alt me-2"></i> Dakar, Sénégal</p>
+        <p><i class="fas fa-phone me-2"></i> +221 77 101 58 58</p>
+        <p><i class="fas fa-envelope me-2"></i>falloucity@gmail.com</p>
+      </div>
+
+    </div>
+    <hr class="border-light">
+    <div class="text-center">
+      <p class="mb-0">© 2026 Fallou City</p>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
