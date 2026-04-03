@@ -1,8 +1,6 @@
-# home/views.py
 from django.shortcuts import render
 from django.http import HttpResponse
 
-# ✅ 27 biens avec descriptions uniques
 BIENS = [
     {
         'id': 1,
@@ -94,7 +92,6 @@ BIENS = [
         'type_bien': 'Villa',
         'lieu': 'Ngor/Almadies'
     },
-    # 🔹 Bien 11 → 27
     {
         'id': 11,
         'titre': 'Résidence Confort',
@@ -252,7 +249,7 @@ BIENS = [
 
 IMAGES = [f'house{i}.jpeg' for i in range(1, 28)]
 
-# ===== Pages =====
+
 def index(request):
     return render(request, 'index.html', {
         'biens': BIENS[:6],
