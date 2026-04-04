@@ -1,41 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block content %}
-<section class="container my-5">
-    <h1 class="text-center mb-4">Fallou City</h1>
-    <!-- Carrousel -->
-    <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-inner">
-        {% for img in images %}
-        <div class="carousel-item {% if forloop.first %}active{% endif %}">
-            <img src="{% static 'images/' %}{{ img }}" class="d-block w-100" style="height:60vh; object-fit:cover;">
-        </div>
-        {% endfor %}
-      </div>
-    </div>
-</section>
 
-<section class="container my-5">
-    <h2 class="text-center mb-4">Nos biens phares</h2>
-    <div class="row g-4">
-        {% for bien in biens %}
-        <div class="col-12 col-sm-6 col-md-4">
-            <div class="card h-100 shadow-sm">
-                <img src="{% static 'images/' %}{{ bien.image|default:'house1.jpeg' }}" class="card-img-top" style="height:250px; object-fit:cover;">
-                <div class="card-body d-flex flex-column">
-                    <h5>{{ bien.titre }} <span class="badge bg-success">Vente</span></h5>
-                    <p class="text-muted">{{ bien.details }}</p>
-                    <div class="mt-auto">
-                        <a href="{% url 'detail_propriete' bien.id %}" class="btn btn-primary w-100 mb-2">Détails</a>
-                        <a href="https://wa.me/221771015858?text=Bonjour,%20je%20suis%20intéressé%20par%20{{ bien.titre }}" class="btn btn-success w-100" target="_blank">WhatsApp</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        {% endfor %}
-    </div>
-</section>
-{% endblock %}
+{% block content %}
 
 <!-- ===== CARROUSEL ===== -->
 <section id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
@@ -46,12 +12,16 @@
       </div>
     {% endfor %}
   </div>
-  <div class="carousel-text">
+
+  <div class="carousel-text text-center text-white">
     <h1 class="fw-bold">Fallou City</h1>
     <p>Découvrez nos biens de rêve</p>
-    <a href="{% url 'proprietes' %}" class="btn btn-primary btn-lg">Voir les propriétés</a>
+    <a href="{% url 'proprietes' %}" class="btn btn-primary btn-lg">
+      Voir les propriétés
+    </a>
   </div>
 </section>
+
 
 <!-- ===== BIENS PHARES ===== -->
 <section class="container my-5">
@@ -61,27 +31,36 @@
       <div class="col-12 col-sm-6 col-md-4">
         <div class="card shadow-sm h-100">
           <img src="{% static 'images/' %}{{ bien.image|default:'house1.jpeg' }}?v=2" 
-               class="card-img-top img-fluid" style="width:100%; height:auto; object-fit:cover;">
+               class="card-img-top img-fluid"
+               style="width:100%; height:250px; object-fit:cover;">
+          
           <div class="card-body d-flex flex-column">
             <h5>
               {{ bien.titre }}
               <span class="badge bg-success">Vente</span>
             </h5>
+
             <p class="text-muted">{{ bien.details }}</p>
+
             <div class="mt-auto">
-              <a href="{% url 'detail_propriete' bien.id %}" class="btn btn-primary btn-sm w-100 mb-2">
-                Détails
+              <a href="{% url 'detail_propriete' bien.id %}" 
+                 class="btn btn-primary btn-sm w-100 mb-2">
+                 Détails
               </a>
+
               <a href="https://wa.me/221771015858?text=Bonjour,%20je%20suis%20intéressé%20par%20{{ bien.titre }}" 
-                 class="btn btn-success btn-sm w-100" target="_blank">
-                WhatsApp
+                 class="btn btn-success btn-sm w-100"
+                 target="_blank">
+                 WhatsApp
               </a>
             </div>
+
           </div>
         </div>
       </div>
     {% endfor %}
   </div>
+
   <div class="text-center mt-5">
     <a href="{% url 'proprietes' %}" class="btn btn-dark btn-lg px-5">
       Voir plus de propriétés
@@ -89,80 +68,112 @@
   </div>
 </section>
 
+
 <!-- ===== SERVICES ===== -->
 <section class="bg-light text-center py-5">
   <div class="container">
     <h2 class="mb-4">Nos services</h2>
+
     <div class="row g-4">
-      <div class="col-md-4"><h5>Achat</h5></div>
-      <div class="col-md-4"><h5>Vente</h5></div>
-      <div class="col-md-4"><h5>Location</h5></div>
+      <div class="col-md-4">
+        <h5>Achat</h5>
+      </div>
+
+      <div class="col-md-4">
+        <h5>Vente</h5>
+      </div>
+
+      <div class="col-md-4">
+        <h5>Location</h5>
+      </div>
     </div>
+
   </div>
 </section>
+
 
 <!-- ===== POURQUOI NOUS CHOISIR ===== -->
 <section class="container text-center my-5">
   <h2>Pourquoi nous choisir ?</h2>
+
   <div class="row g-4 mt-4">
+
     <div class="col-12 col-md-4">
       <i class="bi bi-shield-check service-icon"></i>
       <p>Fiabilité et sécurité dans toutes vos transactions</p>
     </div>
+
     <div class="col-12 col-md-4">
       <i class="bi bi-people service-icon"></i>
       <p>Équipe professionnelle et disponible</p>
     </div>
+
     <div class="col-12 col-md-4">
       <i class="bi bi-star service-icon"></i>
       <p>Plus de 100 clients satisfaits</p>
     </div>
+
   </div>
 </section>
+
 
 <!-- ===== PROJETS RÉCENTS ===== -->
 <section class="py-5">
   <div class="container">
     <h2 class="text-center mb-5">Nos projets récents</h2>
+
     <div class="row g-4">
+
       <div class="col-md-4">
         <div class="card shadow-sm">
           <img src="{% static 'images/house1.jpeg' %}?v=2" class="card-img-top img-fluid">
+
           <div class="card-body">
             <h5>Lieu: NGOR-ALMADIES</h5>
             <p>Vendu récemment</p>
           </div>
         </div>
       </div>
+
       <div class="col-md-4">
         <div class="card shadow-sm">
           <img src="{% static 'images/house2.jpeg' %}?v=2" class="card-img-top img-fluid">
+
           <div class="card-body">
             <h5>Lieu: NGOR-ALMADIES</h5>
-            <p>Chantiers en cours</p>
+            <p>Immeuble moderne, élégant et sécurisé, offrant un cadre de vie confortable et prestigieux.</p>
           </div>
         </div>
       </div>
+
       <div class="col-md-4">
         <div class="card shadow-sm">
           <img src="{% static 'images/house3.jpeg' %}?v=2" class="card-img-top img-fluid">
+
           <div class="card-body">
             <h5>Lieu: NGOR-ALMADIES</h5>
             <p>Garage et jardin</p>
           </div>
         </div>
       </div>
+
     </div>
   </div>
 </section>
 
-<!-- ===== EMAIL FLOAT BUTTON ===== -->
-<a href="mailto:falloucity2026@gmail.com"
-   class="whatsapp-float" target="_blank">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="Email">
+
+<!-- ===== BOUTON WHATSAPP ===== -->
+<a href="https://wa.me/221771015858"
+   class="whatsapp-float"
+   target="_blank">
+
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
+
 </a>
 
+
 <style>
+
 .whatsapp-float {
   position: fixed;
   bottom: 25px;
@@ -177,12 +188,17 @@
   z-index: 9999;
   box-shadow: 0 5px 15px rgba(0,0,0,0.4);
 }
+
 .whatsapp-float img {
   width: 35px;
   height: 35px;
 }
+
 .whatsapp-float:hover {
   transform: scale(1.1);
 }
+
 </style>
+
+
 {% endblock %}
