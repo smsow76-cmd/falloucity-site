@@ -14,12 +14,12 @@
         <input type="number" name="prix" class="form-control" placeholder="Prix max">
       </div>
       <div class="col-12 col-md-3">
-        <select name="type" class="form-control"
-            onclick="window.location.href='{% url 'proprietes' %}'">
+        <!-- ❌ SUPPRIMÉ onclick (ça cassait le formulaire) -->
+        <select name="type" class="form-control">
           <option value="">Type</option>
-          <option>Villa</option>
-          <option>Appartement</option>
-          <option>Terrain</option>
+          <option value="Villa">Villa</option>
+          <option value="Appartement">Appartement</option>
+          <option value="Terrain">Terrain</option>
         </select>
       </div>
       <div class="col-12 col-md-2">
@@ -34,12 +34,12 @@
   <div class="carousel-inner">
     {% for img in images %}
     <div class="carousel-item {% if forloop.first %}active{% endif %}">
-      <img src="{% static 'images/'|add:img %}" class="d-block w-100" style="height:90vh; object-fit:cover;">
+      <!-- ✅ CORRECTION IMAGE -->
+      <img src="{% static 'images/' %}{{ img }}" class="d-block w-100" style="height:90vh; object-fit:cover;">
     </div>
     {% endfor %}
   </div>
 
-  <!-- 🔥 TEXTE FIXE -->
   <div class="carousel-text">
     <h1 class="fw-bold">Fallou City</h1>
     <p>Découvrez nos biens de rêve</p>
@@ -54,101 +54,99 @@
     {% for bien in biens %}
     <div class="col-12 col-sm-6 col-md-4">
       <div class="card shadow-sm h-100">
-        <img src="{% static 'images/'|add:bien.image|default:'house1.jpeg' %}" class="card-img-top img-fluid" style="height:250px; object-fit:cover;">
+
+        <!-- ✅ IMAGE CORRIGÉE -->
+        <img src="{% static 'images/' %}{{ bien.image|default:'house1.jpeg' }}" 
+             class="card-img-top img-fluid" 
+             style="height:250px; object-fit:cover;">
+
         <div class="card-body d-flex flex-column">
           <h5>
             {{ bien.titre }}
             <span class="badge bg-success">Vente</span>
           </h5>
           <p class="text-muted">{{ bien.details }}</p>
+
           <div class="mt-auto">
-            <a href="{% url 'detail' bien.id %}" class="btn btn-primary btn-sm w-100 mb-2">Détails</a>
-            <a href="https://wa.me/771015858?text=Bonjour,%20je%20suis%20intéressé%20par%20{{ bien.titre }}" class="btn btn-success btn-sm w-100" target="_blank">WhatsApp</a>
+            <!-- ⚠️ vérifier nom URL -->
+            <a href="{% url 'detail_propriete' bien.id %}" class="btn btn-primary btn-sm w-100 mb-2">
+              Détails
+            </a>
+
+            <!-- ✅ WhatsApp OK -->
+            <a href="https://wa.me/221771015858?text=Bonjour,%20je%20suis%20intéressé%20par%20{{ bien.titre }}" 
+               class="btn btn-success btn-sm w-100" target="_blank">
+              WhatsApp
+            </a>
           </div>
+
         </div>
       </div>
     </div>
     {% endfor %}
   </div>
 
-  <!-- ✅ BOUTON VOIR PLUS BIEN VISIBLE -->
   <div class="text-center mt-5">
-    <a href="{% url 'proprietes' %}" class="btn btn-dark btn-lg px-5">Voir plus de propriétés</a>
+    <a href="{% url 'proprietes' %}" class="btn btn-dark btn-lg px-5">
+      Voir plus de propriétés
+    </a>
   </div>
 </section>
 
-<!-- ===== NOS SERVICES ===== -->
+<!-- ===== SERVICES ===== -->
 <section class="bg-light text-center py-5">
   <div class="container">
     <h2 class="mb-4">Nos services</h2>
     <div class="row g-4">
-      <div class="col-12 col-md-4">
-        <i class="bi bi-house-door-fill service-icon"></i>
+      <div class="col-md-4">
         <h5>Achat</h5>
       </div>
-      <div class="col-12 col-md-4">
-        <i class="bi bi-cash-stack service-icon"></i>
+      <div class="col-md-4">
         <h5>Vente</h5>
       </div>
-      <div class="col-12 col-md-4">
-        <i class="bi bi-building service-icon"></i>
+      <div class="col-md-4">
         <h5>Location</h5>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== POURQUOI NOUS ===== -->
-<section class="container text-center my-5">
-  <h2>Pourquoi nous choisir ?</h2>
-  <div class="row g-4 mt-4">
-    <div class="col-12 col-md-4">
-      <i class="bi bi-shield-check service-icon"></i>
-      <p>Fiabilité et sécurité dans toutes vos transactions</p>
-    </div>
-    <div class="col-12 col-md-4">
-      <i class="bi bi-people service-icon"></i>
-      <p>Équipe professionnelle et disponible</p>
-    </div>
-    <div class="col-12 col-md-4">
-      <i class="bi bi-star service-icon"></i>
-      <p>Plus de 100 clients satisfaits</p>
-    </div>
-  </div>
-</section>
-
-<!-- ===== PROJETS RECENTS ===== -->
+<!-- ===== PROJETS ===== -->
 <section class="py-5">
   <div class="container">
     <h2 class="text-center mb-5">Nos projets récents</h2>
     <div class="row g-4">
-      <div class="col-12 col-md-4">
+
+      <div class="col-md-4">
         <div class="card shadow-sm">
-          <img src="{% static 'images/house1.jpeg' %}" class="card-img-top img-fluid">
+          <img src="{% static 'images/house1.jpeg' %}" class="card-img-top">
           <div class="card-body">
             <h5>Lieu: GOR/ALMADIES</h5>
             <p>Vendu récemment</p>
           </div>
         </div>
       </div>
-      <div class="col-12 col-md-4">
+
+      <div class="col-md-4">
         <div class="card shadow-sm">
-          <img src="{% static 'images/house2.jpeg' %}" class="card-img-top img-fluid">
+          <img src="{% static 'images/house2.jpeg' %}" class="card-img-top">
           <div class="card-body">
             <h5>Lieu: GOR/ALMADIES</h5>
-            <p>chantiers en cour</p>
+            <p>Chantiers en cours</p>
           </div>
         </div>
       </div>
-      <div class="col-12 col-md-4">
+
+      <div class="col-md-4">
         <div class="card shadow-sm">
-          <img src="{% static 'images/house3.jpeg' %}" class="card-img-top img-fluid">
+          <img src="{% static 'images/house3.jpeg' %}" class="card-img-top">
           <div class="card-body">
             <h5>Lieu: GOR/ALMADIES</h5>
             <p>Garage et jardin</p>
           </div>
         </div>
       </div>
+
     </div>
   </div>
 </section>

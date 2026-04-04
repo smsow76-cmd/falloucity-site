@@ -1,1 +1,1 @@
-web: gunicorn falloucity.wsgi 
+web: gunicorn falloucity.wsgi --bind 0.0.0.0:$PORT
