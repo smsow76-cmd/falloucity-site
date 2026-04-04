@@ -8,21 +8,26 @@
 </head>
 <body>
 <div class="container mt-5">
-    <h2 class="mb-4">Toutes les propriétés</h2>
-
-    <div class="row">
+    <h2 class="mb-4 text-center">Toutes les propriétés</h2>
+    <div class="row g-4">
         {% for bien in biens %}
-        <div class="col-12 mb-4">  <!-- Une carte par ligne -->
+        <div class="col-12 col-md-6 col-lg-4">
             <div class="card h-100 shadow-sm">
                 <img src="{% static 'images/'|add:bien.image %}?v=2" 
                      class="card-img-top img-fluid" 
-                     style="height:400px; object-fit:cover;">
-                <div class="card-body">
+                     style="height:300px; object-fit:cover;">
+                <div class="card-body d-flex flex-column">
                     <h5 class="card-title">{{ bien.titre }}</h5>
-                    <p class="card-text">{{ bien.details }}</p>
-                    <a href="{% url 'detail_propriete' bien.id %}" class="btn btn-primary w-100 mb-2">Voir détails</a>
-                    <a href="https://wa.me/221771015858?text=Bonjour,%20je%20suis%20intéressé%20par%20{{ bien.titre }}" 
-                       class="btn btn-success w-100" target="_blank">WhatsApp</a>
+                    <p class="card-text text-muted">{{ bien.details }}</p>
+                    <div class="mt-auto d-grid gap-2">
+                        <a href="{% url 'detail_propriete' bien.id %}" class="btn btn-primary btn-sm">
+                            Voir détails
+                        </a>
+                        <a href="https://wa.me/221771015858?text=Bonjour,%20je%20suis%20intéressé%20par%20{{ bien.titre }}" 
+                           class="btn btn-success btn-sm" target="_blank">
+                            WhatsApp
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
