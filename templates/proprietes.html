@@ -13,7 +13,7 @@
         {% for bien in biens %}
         <div class="col-md-4 mb-4">
             <div class="card h-100 shadow-sm">
-                <img src="{% static 'images/'|add:bien.image %}" class="card-img-top" style="height:250px; object-fit:cover;">
+                <img src="{% static 'images/'|add:bien.image %}?v=2" class="card-img-top img-fluid" style="width:100%; height:auto; object-fit:cover;">
                 <div class="card-body">
                     <h5 class="card-title">{{ bien.titre }}</h5>
                     <p class="card-text">{{ bien.details }}</p>
