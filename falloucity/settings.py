@@ -8,24 +8,17 @@ SECRET_KEY = 'django-insecure-change-this-key'
 
 DEBUG = True
 
-<<<<<<< HEAD
-ALLOWED_HOSTS = [
-    '127.0.0.1',
-    'localhost',
-    'falloucity-site.onrender.com'
-]
-=======
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-my=&gzjcw%z_avmimu1w==drbyz1#8omjirsovy5ndc+q2&0@)'
+import os
+from pathlib import Path
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+BASE_DIR = Path(__file__).resolve().parent.parent
 
-ALLOWED_HOSTS = ['*']
-# Application definition
->>>>>>> 76e1292
+# 🔐 sécurité
+SECRET_KEY = 'django-insecure-change-this-key'
 
-# ✅ apps
+DEBUG = True
+
+ALLOWED_HOSTS = ['*']# ✅ apps
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
