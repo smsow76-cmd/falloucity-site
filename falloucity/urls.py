@@ -17,16 +17,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.contrib.sitemaps.views import sitemap
-from home.sitemap import StaticViewSitemap, BienSitemap
-
-# Instanciation des sitemaps
+from home.sitemap import BienSitemap
 sitemaps = {
-    'static': StaticViewSitemap(),
     'biens': BienSitemap(),
 }
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('home.urls')),  # inclut toutes les URLs de l'app home
+    path('', include('home.urls')),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django-sitemap'),
 ]
