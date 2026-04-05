@@ -3,17 +3,19 @@ __pycache__/
 *.py[cod]
 *.sqlite3
 *.log
-Commande ECHO activ‚e.
+
 # Django
 media/
 staticfiles/
-Commande ECHO activ‚e.
+
 # IDEs
 .vscode/
 *.idea/
-Commande ECHO activ‚e.
+
 # OS
 .DS_Store
 Thumbs.db
-"static/images/hero.jpg" 
-"templates/robots.txt" 
+
+# Fichiers spÃ©cifiques non suivis
+static/images/hero.jpg
+templates/robots.txt
