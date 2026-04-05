@@ -1,21 +1,9 @@
 # Python
+*.pyc
 __pycache__/
-*.py[cod]
-*.sqlite3
-*.log
+*.pyo
+*.pyd
 
-# Django
-media/
-staticfiles/
-
-# IDEs
-.vscode/
-*.idea/
-
-# OS
-.DS_Store
-Thumbs.db
-
-# Fichiers spécifiques non suivis
-static/images/hero.jpg
-templates/robots.txt
+# Environnements
+venv/
+.env
