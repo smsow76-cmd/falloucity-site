@@ -68,7 +68,7 @@
 
                     <div class="mt-auto">
                         <a href="{% url 'detail_propriete' bien.id %}" class="btn btn-primary btn-w-full mb-2">Voir détails</a>
-                        <a href="https://wa.me/221768015858?text=Bonjour,%20je%20suis%20intéressé%20par%20{{ bien.titre }}" 
+                        <a href="https://wa.me/221768015858?text={{ 'Bonjour, je suis intéressé par ce bien : '|add:bien.titre|urlencode }}" 
                            class="btn btn-success btn-w-full" target="_blank">WhatsApp</a>
                     </div>
                 </div>

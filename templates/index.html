@@ -232,10 +232,10 @@
                  Détails
               </a>
 
-              <a href="https://wa.me/221768015858?text=Bonjour,%20je%20suis%20intéressé%20par%20{{ bien.titre }}" 
-                 class="btn btn-success btn-sm w-100"
-                 target="_blank">
-                 WhatsApp
+              <a href="https://wa.me/221768015858?text={{ 'Bonjour je suis intéressé par ce bien: '|add:bien.titre|urlencode }}" 
+                class="btn btn-success btn-sm w-100"
+                target="_blank">
+                WhatsApp
               </a>
             </div>
 
