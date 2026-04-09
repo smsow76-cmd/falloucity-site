@@ -224,7 +224,7 @@
               <span class="badge bg-success">Vente</span>
             </h5>
 
-            <p class="text-muted">{{ bien.details }}</p>
+            <p class="text-muted">{{ bien.details|truncatechars:120 }}...</p>
 
             <div class="mt-auto">
               <a href="{% url 'detail_propriete' bien.id %}" 
