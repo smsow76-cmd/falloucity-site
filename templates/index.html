@@ -1,15 +1,5 @@
 {% extends 'base.html' %}
 {% load static %}
-{% load static %}
-
-<section class="hero-video">
-
-  <video autoplay muted loop playsinline controls>
-    <source src="{% static 'videos/immobilier.mp4' %}" type="video/mp4">
-    Votre navigateur ne supporte pas la vidéo
-  </video>
-
-</section>
 
 {% block content %}
 
@@ -18,7 +8,7 @@
   <div class="carousel-inner">
     {% for img in images %}
       <div class="carousel-item {% if forloop.first %}active{% endif %}">
-        <img src="{% static 'images/' %}{{ img }}?v=2" class="d-block w-100" style="height:90vh; object-fit:cover;">
+        <img src="{% static 'images/' %}{{ img }}?v=2" class="d-block w-100 carousel-img">
       </div>
     {% endfor %}
   </div>
@@ -32,351 +22,379 @@
   </div>
 </section>
 
-<!-- ===== PRESENTATION PREMIUM ENTREPRISE ===== -->
-
+<!-- ===== PRESENTATION ENTREPRISE ===== -->
 <section class="py-5 bg-light">
-  <div class="container">
+<div class="container">
 
 <div class="row align-items-center g-5">
 
-  <!-- IMAGE -->
-  <div class="col-lg-6">
-    <div class="position-relative">
-      <img src="{% static 'images/house1.jpeg' %}" 
-           class="img-fluid rounded-4 shadow-lg" 
-           style="height:450px; width:100%; object-fit:cover;">
+<div class="col-lg-6">
+<div class="position-relative">
+<img src="{% static 'images/house1.jpeg' %}" 
+class="img-fluid rounded-4 shadow-lg" 
+style="height:420px; width:100%; object-fit:cover;">
 
-      <div class="position-absolute bottom-0 start-0 bg-primary text-white p-4 rounded-end">
-        <h4 class="fw-bold mb-0">Fallou City</h4>
-        <small>Immobilier Premium</small>
-      </div>
-    </div>
-  </div>
+<div class="position-absolute bottom-0 start-0 bg-primary text-white p-4 rounded-end">
+<h4 class="fw-bold mb-0">Fallou City</h4>
+<small>Immobilier Premium</small>
+</div>
+</div>
+</div>
 
-  <!-- TEXTE -->
-  <div class="col-lg-6">
-    
-    <span class="text-primary fw-bold">À PROPOS DE NOUS</span>
+<div class="col-lg-6">
+<span class="text-primary fw-bold">À PROPOS DE NOUS</span>
+<h2 class="fw-bold mt-2 mb-4">Votre partenaire immobilier de confiance</h2>
 
-    <h2 class="fw-bold mt-2 mb-4">
-      Votre partenaire immobilier de confiance
-    </h2>
+<p class="text-muted">
+Fallou City est une entreprise immobilière et de construction spécialisée dans la vente, l’achat, la location de biens et la réalisation de projets de construction au Sénégal. Nous accompagnons nos clients dans la concrétisation de leurs projets immobiliers et de construction en proposant des solutions fiables, modernes et adaptées à leurs besoins.
+Grâce à notre expertise et à notre engagement, nous garantissons un service de qualité basé sur la confiance, la transparence et la satisfaction client.
+</p>
 
-    <p class="text-muted">
-      Fallou City est une entreprise immobilière spécialisée dans la vente, l'achat 
-      et la location de biens immobiliers au Sénégal. Nous accompagnons nos clients 
-      avec professionnalisme pour trouver les meilleures opportunités.
-    </p>
+<p class="text-muted">
+Nous proposons des villas modernes, appartements,
+terrains et immeubles dans les meilleures zones.
+</p>
 
-    <p class="text-muted">
-      Grâce à notre expertise et notre réseau, nous proposons des villas modernes, 
-      appartements, terrains et immeubles dans les meilleures zones.
-    </p>
+<div class="row mt-4">
 
-    <!-- STATS -->
-    <div class="row mt-4">
+<div class="col-6">
+<div class="border-start border-4 border-primary ps-3">
+<h3 class="fw-bold mb-0">100+</h3>
+<small class="text-muted">Clients satisfaits</small>
+</div>
+</div>
 
-      <div class="col-6">
-        <div class="border-start border-4 border-primary ps-3">
-          <h3 class="fw-bold mb-0">100+</h3>
-          <small class="text-muted">Clients satisfaits</small>
-        </div>
-      </div>
-
-      <div class="col-6">
-        <div class="border-start border-4 border-primary ps-3">
-          <h3 class="fw-bold mb-0">50+</h3>
-          <small class="text-muted">Biens vendus</small>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- BOUTONS -->
-    <div class="mt-4">
-
-      <a href="{% url 'proprietes' %}" 
-         class="btn btn-primary btn-lg me-2">
-         Voir les biens
-      </a>
-
-      <a href="https://wa.me/221768015858" 
-         class="btn btn-outline-dark btn-lg">
-         Contact
-      </a>
-
-    </div>
-
-  </div>
+<div class="col-6">
+<div class="border-start border-4 border-primary ps-3">
+<h3 class="fw-bold mb-0">50+</h3>
+<small class="text-muted">Biens vendus</small>
+</div>
+</div>
 
 </div>
 
-  </div>
+<div class="mt-4">
+<a href="{% url 'proprietes' %}" class="btn btn-primary btn-lg me-2">Voir les biens</a>
+<a href="https://wa.me/221768015858" class="btn btn-outline-dark btn-lg">Contact</a>
+</div>
+
+</div>
+</div>
+</div>
 </section>
 
-<!-- ===== NOS SERVICES PREMIUM ===== -->
 
-<section class="py-5">
-  <div class="container text-center">
+<!-- ===== PHILOSOPHIE ET VALEURS ===== -->
+<section class="py-4 text-white hero-spacing" style="background:linear-gradient(135deg,#01381e,#3b5d50);">
+<div class="container">
+<div class="row align-items-center g-4">
 
-<span class="text-primary fw-bold">NOS SERVICES</span>
-<h2 class="fw-bold mb-5">Des solutions immobilières complètes</h2>
+<div class="col-lg-6">
+<h3 class="fw-bold mb-3">Notre philosophie</h3>
+<p>
+Réaliser des prestations de qualité dans une recherche constante
+de la satisfaction du client.
+</p>
 
-<div class="row g-4">
-
-  <div class="col-md-4">
-    <div class="card border-0 shadow-lg p-4 h-100 rounded-4">
-      <i class="bi bi-house-door display-4 text-primary"></i>
-      <h5 class="mt-3">Achat immobilier</h5>
-      <p class="text-muted">
-        Trouvez la maison ou l'immeuble idéal selon votre budget.
-      </p>
-    </div>
-  </div>
-
-  <div class="col-md-4">
-    <div class="card border-0 shadow-lg p-4 h-100 rounded-4">
-      <i class="bi bi-building display-4 text-primary"></i>
-      <h5 class="mt-3">Vente immobilière</h5>
-      <p class="text-muted">
-        Nous vous aidons à vendre rapidement au meilleur prix.
-      </p>
-    </div>
-  </div>
-
-  <div class="col-md-4">
-    <div class="card border-0 shadow-lg p-4 h-100 rounded-4">
-      <i class="bi bi-key display-4 text-primary"></i>
-      <h5 class="mt-3">Location</h5>
-      <p class="text-muted">
-        Large choix de biens pour location courte ou longue durée.
-      </p>
-    </div>
-  </div>
-
+<h5 class="mt-3">Nos valeurs</h5>
+<ul class="list-unstyled mb-0">
+<li>✔ Savoir-faire et Qualité</li>
+<li>✔ Engagement</li>
+<li>✔ Disponibilité</li>
+<li>✔ Responsabilité</li>
+<li>✔ Confiance</li>
+<li>✔ Proximité</li>
+</ul>
 </div>
 
-  </div>
+<div class="col-lg-6 text-center">
+<img src="{% static 'images/house2.jpeg' %}" 
+class="img-fluid rounded shadow-lg" 
+style="max-height:300px; object-fit:cover;">
+</div>
+
+</div>
+</div>
 </section>
 
-<!-- ===== NOS VALEURS ===== -->
 
-<section class="py-5">
-  <div class="container text-center">
-
-<h2 class="mb-5 fw-bold">Pourquoi choisir Fallou City</h2>
-
-<div class="row g-4">
-
-  <div class="col-md-4">
-    <div class="card shadow border-0 p-4 h-100">
-      <i class="bi bi-shield-check display-4 text-primary"></i>
-      <h5 class="mt-3">Fiabilité</h5>
-      <p class="text-muted">
-        Transactions sécurisées et accompagnement professionnel.
-      </p>
-    </div>
-  </div>
-
-  <div class="col-md-4">
-    <div class="card shadow border-0 p-4 h-100">
-      <i class="bi bi-building display-4 text-primary"></i>
-      <h5 class="mt-3">Biens de qualité</h5>
-      <p class="text-muted">
-        Sélection rigoureuse des meilleurs biens immobiliers.
-      </p>
-    </div>
-  </div>
-
-  <div class="col-md-4">
-    <div class="card shadow border-0 p-4 h-100">
-      <i class="bi bi-people display-4 text-primary"></i>
-      <h5 class="mt-3">Accompagnement</h5>
-      <p class="text-muted">
-        Une équipe disponible pour vous accompagner.
-      </p>
-    </div>
-  </div>
-
+<!-- ===== MISSION ===== -->
+<section class="py-5 bg-light">
+<div class="container text-center">
+<h2 class="fw-bold mb-4">Notre mission</h2>
+<p class="lead text-muted">
+Profondément ancrée dans notre mission de contribuer à un avenir meilleur.
+Nous croyons que chaque bâtiment que nous construisons,
+chaque détail que nous affinons et chaque projet que nous
+menons à son terme a le potentiel de changer des vies et
+d’impacter positivement notre monde.
+</p>
 </div>
+</section>
 
-  </div>
+
+<!-- ===== NOS ENGAGEMENTS ===== -->
+<section class="py-5 text-white" style="background:linear-gradient(135deg,#01381e,#3b5d50);">
+    <div class="container">
+
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">Pourquoi nous choisir ?</h2>
+            <p class="text-light">Des moyens solides et un engagement durable</p>
+        </div>
+
+        <div class="row g-4">
+
+            <div class="col-md-4">
+                <div class="card bg-transparent border-light text-white h-100 p-4 rounded-4 shadow">
+                    <i class="bi bi-truck fs-1 mb-3"></i>
+                    <h5 class="fw-bold">Matériels logistiques</h5>
+                    <p>
+                        Nous disposons de notre propre matériel logistique de pointe
+                        pour assurer tous nos travaux.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card bg-transparent border-light text-white h-100 p-4 rounded-4 shadow">
+                    <i class="bi bi-people fs-1 mb-3"></i>
+                    <h5 class="fw-bold">Ressources humaines</h5>
+                    <p>
+                        Nos équipes d’ingénieurs et de techniciens qualifiés assurent
+                        la réussite de chaque projet.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card bg-transparent border-light text-white h-100 p-4 rounded-4 shadow">
+                    <i class="bi bi-shield-check fs-1 mb-3"></i>
+                    <h5 class="fw-bold">Qualité & Engagement</h5>
+                    <p>
+                        Nous adoptons des pratiques durables et respectueuses
+                        de l’environnement.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ===== RESSOURCES HUMAINES & INNOVATION ===== -->
+<section class="py-5 text-white" style="background:linear-gradient(135deg,#01381e,#3b5d50); margin-top:20px;">
+    <div class="container">
+
+        <!-- Ressources humaines -->
+        <div class="row align-items-center mb-5">
+
+            <div class="col-md-4">
+                <h3 class="fw-bold">• Ressources Humaines</h3>
+            </div>
+
+            <div class="col-md-8">
+                <div class="border border-light rounded-4 p-4 shadow">
+                    <p class="mb-0">
+                        A CITY FALLOU CITY, nous avons des équipes d’Ingénieur et de Techniciens 
+                        qualifiés qui par leurs expériences et leur savoir-faire mènent à bien 
+                        chaque projet jusqu'à sa livraison.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        <hr class="border-light">
+
+        <!-- Innovation continue -->
+        <div class="row align-items-center mt-5">
+
+            <div class="col-md-4">
+                <h3 class="fw-bold">• Innovation Continue</h3>
+            </div>
+
+            <div class="col-md-8">
+                <div class="border border-light rounded-4 p-4 shadow">
+                    <p>
+                        FALLOU City investit dans la recherche et le développement pour rester à la 
+                        pointe de l’ingénierie du bâtiment et du génie civil. Chaque projet est une 
+                        opportunité d’explorer de nouvelles technologies, de repousser les limites 
+                        de la conception et de proposer des solutions novatrices à nos clients.
+                    </p>
+
+                    <p class="mb-0">
+                        Notre engagement envers l’innovation nous permet de répondre aux besoins 
+                        changeants de nos clients et de créer des espaces qui évoluent avec le temps.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- ===== NOS SERVICES ===== -->
+<section class="py-5">
+    <div class="container text-center">
+
+        <span class="text-primary fw-bold">NOS SERVICES</span>
+        <h2 class="fw-bold mb-5">Des solutions immobilières complètes</h2>
+
+        <div class="row g-4">
+
+            <!-- Construction -->
+            <div class="col-md-3">
+                <div class="card border-0 shadow-lg p-4 h-100 rounded-4">
+                    <i class="bi bi-hammer display-4 text-primary"></i>
+                    <h5 class="mt-3">Construction</h5>
+                    <p class="text-muted">
+                        Nous réalisons des projets de construction modernes et durables.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Achat -->
+            <div class="col-md-3">
+                <div class="card border-0 shadow-lg p-4 h-100 rounded-4">
+                    <i class="bi bi-house-door display-4 text-primary"></i>
+                    <h5 class="mt-3">Achat immobilier</h5>
+                    <p class="text-muted">Trouvez la maison idéale.</p>
+                </div>
+            </div>
+
+            <!-- Vente -->
+            <div class="col-md-3">
+                <div class="card border-0 shadow-lg p-4 h-100 rounded-4">
+                    <i class="bi bi-building display-4 text-primary"></i>
+                    <h5 class="mt-3">Vente immobilière</h5>
+                    <p class="text-muted">Vendez rapidement au meilleur prix.</p>
+                </div>
+            </div>
+
+            <!-- Location -->
+            <div class="col-md-3">
+                <div class="card border-0 shadow-lg p-4 h-100 rounded-4">
+                    <i class="bi bi-key display-4 text-primary"></i>
+                    <h5 class="mt-3">Location</h5>
+                    <p class="text-muted">Large choix de biens disponibles.</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
 </section>
 
 <!-- ===== BIENS PHARES ===== -->
 <section class="container my-5">
-  <h2 class="text-center mb-4">Nos biens phares</h2>
-  <div class="row g-4">
-    {% for bien in biens %}
-      <div class="col-12 col-sm-6 col-md-4">
-        <div class="card shadow-sm h-100">
+<h2 class="text-center mb-4">Nos biens phares</h2>
 
-          <!-- ✅ IMAGE CLIQUABLE -->
-          <a href="{% url 'detail_propriete' bien.id %}">
-            <img src="{% static 'images/' %}{{ bien.image|default:'house1.jpeg' }}?v=2" 
-                 class="card-img-top img-fluid"
-                 style="width:100%; height:250px; object-fit:cover;">
-          </a>
-          
-          <div class="card-body d-flex flex-column">
-            <h5>
-              {{ bien.titre }}
-              <span class="badge bg-success">Vente</span>
-            </h5>
+<div class="row g-4">
+{% for bien in biens %}
 
-            <p class="text-muted">{{ bien.details|truncatechars:120 }}...</p>
+<div class="col-12 col-sm-6 col-md-4">
+<div class="card shadow-sm h-100">
 
-            <div class="mt-auto">
-              <a href="{% url 'detail_propriete' bien.id %}" 
-                 class="btn btn-primary btn-sm w-100 mb-2">
-                 Détails
-              </a>
-
-              <a href="https://wa.me/221768015858?text={{ 'Bonjour je suis intéressé par ce bien: '|add:bien.titre|urlencode }}" 
-                class="btn btn-success btn-sm w-100"
-                target="_blank">
-                WhatsApp
-              </a>
-            </div>
-
-          </div>
-        </div>
-      </div>
-    {% endfor %}
-  </div>
-
-  <div class="text-center mt-5">
-    <a href="{% url 'proprietes' %}" class="btn btn-dark btn-lg px-5">
-      Voir plus de propriétés
-    </a>
-  </div>
-</section>
-
-<!-- ===== SERVICES ===== -->
-<section class="bg-light text-center py-5">
-  <div class="container">
-    <h2 class="mb-4">Nos services</h2>
-
-    <div class="row g-4">
-      <div class="col-md-4">
-        <h5>Achat</h5>
-      </div>
-
-      <div class="col-md-4">
-        <h5>Vente</h5>
-      </div>
-
-      <div class="col-md-4">
-        <h5>Location</h5>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ===== POURQUOI NOUS CHOISIR ===== -->
-<section class="container text-center my-5">
-  <h2>Pourquoi nous choisir ?</h2>
-
-  <div class="row g-4 mt-4">
-
-    <div class="col-12 col-md-4">
-      <i class="bi bi-shield-check service-icon"></i>
-      <p>Fiabilité et sécurité dans toutes vos transactions</p>
-    </div>
-
-    <div class="col-12 col-md-4">
-      <i class="bi bi-people service-icon"></i>
-      <p>Équipe professionnelle et disponible</p>
-    </div>
-
-    <div class="col-12 col-md-4">
-      <i class="bi bi-star service-icon"></i>
-      <p>Plus de 100 clients satisfaits</p>
-    </div>
-
-  </div>
-</section>
-
-<!-- ===== PROJETS RÉCENTS ===== -->
-<section class="py-5">
-  <div class="container">
-    <h2 class="text-center mb-5">Nos projets récents</h2>
-
-    <div class="row g-4">
-
-      <div class="col-md-4">
-        <div class="card shadow-sm">
-          <img src="{% static 'images/house1.jpeg' %}?v=2" class="card-img-top img-fluid">
-
-          <div class="card-body">
-            <h5>Lieu: NGOR-ALMADIES</h5>
-            <p>Vendu récemment</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-4">
-        <div class="card shadow-sm">
-          <img src="{% static 'images/house2.jpeg' %}?v=2" class="card-img-top img-fluid">
-
-          <div class="card-body">
-            <h5>Lieu: NGOR-ALMADIES</h5>
-            <p>Immeuble moderne, élégant et sécurisé, offrant un cadre de vie confortable et prestigieux.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-4">
-        <div class="card shadow-sm">
-          <img src="{% static 'images/house3.jpeg' %}?v=2" class="card-img-top img-fluid">
-
-          <div class="card-body">
-            <h5>Lieu: NGOR-ALMADIES</h5>
-            <p>Garage et jardin</p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ===== BOUTON WHATSAPP ===== -->
-<a href="https://wa.me/221768015858"
-   class="whatsapp-float"
-   target="_blank">
-
-  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
-
+<a href="{% url 'detail_propriete' bien.id %}">
+<img src="{% static 'images/' %}{{ bien.image|default:'house1.jpeg' }}?v=2"
+class="card-img-top img-fluid"
+style="width:100%; height:250px; object-fit:cover;">
 </a>
 
-<style>
+<div class="card-body d-flex flex-column">
 
-.whatsapp-float {
-  position: fixed;
-  bottom: 25px;
-  right: 25px;
-  background-color: #25D366;
-  width: 70px;
-  height: 70px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  z-index: 9999;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.4);
-}
+<h5>
+{{ bien.titre }}
+<span class="badge bg-success">Vente</span>
+</h5>
 
-.whatsapp-float img {
-  width: 35px;
-  height: 35px;
-}
+<p class="text-muted">
+{{ bien.details|truncatechars:120 }}...
+</p>
 
-.whatsapp-float:hover {
-  transform: scale(1.1);
-}
+<div class="mt-auto">
+<a href="{% url 'detail_propriete' bien.id %}" 
+class="btn btn-primary btn-sm w-100 mb-2">
+Détails
+</a>
 
-</style>
+<a href="https://wa.me/221768015858?text={{ 'Bonjour je suis intéressé par ce bien: '|add:bien.titre|urlencode }}"
+class="btn btn-success btn-sm w-100"
+target="_blank">
+WhatsApp
+</a>
+
+</div>
+
+</div>
+</div>
+</div>
+
+{% endfor %}
+</div>
+
+<div class="text-center mt-5">
+<a href="{% url 'proprietes' %}" 
+class="btn btn-dark btn-lg px-5">
+Voir plus de propriétés
+</a>
+</div>
+
+</section>
+<!-- ===== PARTENAIRES ===== -->
+<section class="py-5 partners-section">
+    <div class="container text-center">
+
+        <h2 class="fw-bold mb-4 text-white">Nos partenaires</h2>
+        <p class="mb-5 text-light">Ils nous font confiance dans nos projets immobiliers</p>
+
+        <div class="row g-3 align-items-center justify-content-center">
+
+            <div class="col-4 col-md-2">
+                <img src="{% static 'images/image1.png' %}" class="img-fluid partner-img">
+            </div>
+
+            <div class="col-4 col-md-2">
+                <img src="{% static 'images/image2.png' %}" class="img-fluid partner-img">
+            </div>
+
+            <div class="col-4 col-md-2">
+                <img src="{% static 'images/image3.png' %}" class="img-fluid partner-img">
+            </div>
+
+            <div class="col-4 col-md-2">
+                <img src="{% static 'images/image4.png' %}" class="img-fluid partner-img">
+            </div>
+
+            <div class="col-4 col-md-2">
+                <img src="{% static 'images/image5.png' %}" class="img-fluid partner-img">
+            </div>
+
+            <div class="col-4 col-md-2">
+                <img src="{% static 'images/image6.png' %}" class="img-fluid partner-img">
+            </div>
+
+            <div class="col-4 col-md-2">
+                <img src="{% static 'images/image7.png' %}" class="img-fluid partner-img">
+            </div>
+
+            <div class="col-4 col-md-2">
+                <img src="{% static 'images/image8.png' %}" class="img-fluid partner-img">
+            </div>
+
+            <div class="col-4 col-md-2">
+                <img src="{% static 'images/image9.png' %}" class="img-fluid partner-img">
+            </div>
+
+            <div class="col-4 col-md-2">
+                <img src="{% static 'images/image10.png' %}" class="img-fluid partner-img">
+            </div>
+
+        </div>
+
+    </div>
+</section>
 
 {% endblock %}
