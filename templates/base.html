@@ -1,0 +1,88 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q8E06WCNSE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Q8E06WCNSE');
+</script>
+<head>
+    <meta charset="UTF-8">
+    <title>Fallou City</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+  
+
+<nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="{% url 'home' %}">
+            <img src="{% static 'images/logo.png' %}?v=2" class="logo me-2">
+            <span class="fw-bold">Fallou City</span>
+        </a>
+
+        <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="menu">
+            <ul class="navbar-nav ms-auto text-center">
+                <li><a class="nav-link" href="{% url 'home' %}">Accueil</a></li>
+                <li><a class="nav-link" href="{% url 'proprietes' %}">Propriétés</a></li>
+                <li><a class="nav-link" href="{% url 'services' %}">Services</a></li>
+                <li><a class="nav-link" href="{% url 'contact' %}">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+{% block content %}{% endblock %}
+
+<!-- ===== FOOTER ===== -->
+<footer class="bg-dark text-white py-4">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <h5>Contact</h5>
+        <p>Email : <a href="mailto:falloucity01gmail.com" class="text-white">falloucity01@gmail.com</a></p>
+        <p>Téléphone : +221 76 801 58 58</p>
+        <p>Adresse : NGOR-ALMADIES, Dakar</p>
+      </div>
+      <div class="col-md-4">
+        <h5>Liens rapides</h5>
+        <ul class="list-unstyled">
+          <li><a href="{% url 'home' %}" class="text-white">Accueil</a></li>
+          <li><a href="{% url 'proprietes' %}" class="text-white">Propriétés</a></li>
+          <li><a href="{% url 'contact' %}" class="text-white">Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4 text-center">
+        <h5>Suivez-nous</h5>
+        <a href="https://www.facebook.com/falloucity" target="_blank" class="text-white me-2">
+          <i class="bi bi-facebook fs-3"></i>
+        </a>
+        <a href="https://www.instagram.com/falloucity" target="_blank" class="text-white">
+          <i class="bi bi-instagram fs-3"></i>
+        </a>
+      </div>
+    </div>
+    <div class="text-center mt-3">
+      &copy; 2026 Fallou City. Tous droits réservés.
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,690 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- ===== CARROUSEL ===== -->
+<section id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+
+    {% for img in images %}
+    <div class="carousel-item {% if forloop.first %}active{% endif %}">
+      <img src="{% static 'images/' %}{{ img }}?v=2" class="d-block w-100 carousel-img">
+    </div>
+    {% endfor %}
+
+  </div>
+
+  <div class="carousel-text text-center text-white">
+    <h1 class="fw-bold">Fallou City</h1>
+    <p>Découvrez nos biens de rêve</p>
+    <a href="{% url 'proprietes' %}" class="btn btn-primary btn-lg">
+      Voir les propriétés
+    </a>
+  </div>
+</section>
+<!-- ===== PRESENTATION ENTREPRISE ===== -->
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="row align-items-center g-5">
+
+      <div class="col-lg-6">
+        <div class="position-relative">
+          <img src="{% static 'images/house1.jpeg' %}"
+               class="img-fluid rounded-4 shadow-lg"
+               style="height:420px; width:100%; object-fit:cover;">
+
+          <div class="position-absolute bottom-0 start-0 bg-primary text-white p-4 rounded-end">
+            <h4 class="fw-bold mb-0">Fallou City</h4>
+            <small>Immobilier Premium</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <span class="text-primary fw-bold">À PROPOS DE NOUS</span>
+
+        <h2 class="fw-bold mt-2 mb-4">
+          Votre partenaire immobilier de confiance
+        </h2>
+
+        <p class="text-muted">
+          Fallou City est une entreprise immobilière et de construction spécialisée dans la vente,
+          l’achat, la location de biens et la réalisation de projets de construction au Sénégal.
+          Nous accompagnons nos clients dans la concrétisation de leurs projets immobiliers.
+        </p>
+
+        <p class="text-muted">
+          Nous proposons des villas modernes, appartements, terrains et immeubles dans les meilleures zones.
+        </p>
+
+        <div class="row mt-4">
+          <div class="col-6">
+            <div class="border-start border-4 border-primary ps-3">
+              <h3 class="fw-bold mb-0">100+</h3>
+              <small class="text-muted">Clients satisfaits</small>
+            </div>
+          </div>
+
+          <div class="col-6">
+            <div class="border-start border-4 border-primary ps-3">
+              <h3 class="fw-bold mb-0">50+</h3>
+              <small class="text-muted">Biens vendus</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-4">
+          <a href="{% url 'proprietes' %}" class="btn btn-primary btn-lg me-2">
+            Voir les biens
+          </a>
+
+          <a href="https://wa.me/221768015858" class="btn btn-outline-dark btn-lg">
+            Contact
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+</section>
+<!-- ===== VIDEO HERO ===== -->
+<section class="video-section" onclick="openVideo1(event)" style="cursor:pointer; position:relative;">
+
+  <video autoplay muted loop playsinline class="video-bg" style="width:100%; height:500px; object-fit:cover;">
+    <source src="{% static 'videos/presentation1.mp4' %}" type="video/mp4">
+  </video>
+
+  <!-- overlay sombre -->
+  <div style="position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5);"></div>
+
+  <!-- contenu -->
+  <div style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); text-align:center; color:white;">
+    
+    <h1 class="fw-bold">Fallou City</h1>
+    <p>Cliquez pour voir la présentation complète</p>
+
+    <div style="font-size:60px; margin-top:20px;">▶</div>
+
+  </div>
+
+</section>
+
+<!-- MODAL 1 -->
+<div id="videoModal1" style="
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:black;
+z-index:9999;
+">
+
+  <span onclick="closeVideo1()" 
+        style="color:white; font-size:40px; position:absolute; top:20px; right:30px; cursor:pointer; z-index:10;">
+    ×
+  </span>
+
+  <video id="fullVideo1" controls autoplay style="
+        width:100%;
+        height:100%;
+        object-fit:contain;
+    ">
+    <source src="{% static 'videos/presentation1.mp4' %}" type="video/mp4">
+  </video>
+
+</div>
+
+
+
+
+<!-- ===== PHILOSOPHIE ET VALEURS ===== -->
+<section class="py-4 text-white hero-spacing" style="background:linear-gradient(135deg,#01381e,#3b5d50);">
+  <div class="container">
+    <div class="row align-items-center g-4">
+
+      <div class="col-lg-6">
+        <h3 class="fw-bold mb-3">Notre philosophie</h3>
+        <p>Réaliser des prestations de qualité dans une recherche constante de satisfaction du client.</p>
+
+        <h5 class="mt-3">Nos valeurs</h5>
+        <ul class="list-unstyled mb-0">
+          <li>✔ Savoir-faire et Qualité</li>
+          <li>✔ Engagement</li>
+          <li>✔ Disponibilité</li>
+          <li>✔ Responsabilité</li>
+          <li>✔ Confiance</li>
+          <li>✔ Proximité</li>
+        </ul>
+      </div>
+
+      <div class="col-lg-6 text-center">
+        <img src="{% static 'images/house2.jpeg' %}"
+             class="img-fluid rounded shadow-lg"
+             style="max-height:300px; object-fit:cover;">
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== MISSION ===== -->
+<section class="py-5 bg-light">
+  <div class="container text-center">
+    <h2 class="fw-bold mb-4">Notre mission</h2>
+
+    <p class="lead text-muted">
+      Profondément ancrée dans notre mission de contribuer à un avenir meilleur.
+      Chaque projet que nous menons impacte positivement notre monde.
+    </p>
+  </div>
+</section>
+
+<!-- ===== NOS ENGAGEMENTS ===== -->
+<section class="py-5 text-white" style="background:linear-gradient(135deg,#01381e,#3b5d50);">
+  <div class="container">
+
+    <div class="text-center mb-5">
+      <h2 class="fw-bold">Pourquoi nous choisir ?</h2>
+      <p class="text-light">Des moyens solides et un engagement durable</p>
+    </div>
+
+    <div class="row g-4">
+
+      <div class="col-md-4">
+        <div class="card bg-transparent border-light text-white h-100 p-4 rounded-4 shadow">
+          <i class="bi bi-truck fs-1 mb-3"></i>
+          <h5 class="fw-bold">Matériels logistiques</h5>
+          <p>Nous disposons de notre propre matériel logistique.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card bg-transparent border-light text-white h-100 p-4 rounded-4 shadow">
+          <i class="bi bi-people fs-1 mb-3"></i>
+          <h5 class="fw-bold">Ressources humaines</h5>
+          <p>Nos équipes qualifiées assurent la réussite des projets.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card bg-transparent border-light text-white h-100 p-4 rounded-4 shadow">
+          <i class="bi bi-shield-check fs-1 mb-3"></i>
+          <h5 class="fw-bold">Qualité & Engagement</h5>
+          <p>Nous adoptons des pratiques durables.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- ===== QUALITÉ & ENVIRONNEMENT ===== -->
+<section class="py-5 text-white" style="background:linear-gradient(135deg,#01381e,#3b5d50);">
+  <div class="container">
+
+    <div class="row align-items-center g-5">
+
+      <!-- Titre gauche -->
+      <div class="col-lg-5">
+        <h2 class="fw-bold">• La Qualité Notre CREDO</h2>
+      </div>
+
+      <!-- Texte droite -->
+      <div class="col-lg-7">
+
+        <p>
+          Nous savons la responsabilité qui incombe à notre industrie par rapport aux enjeux de l’environnement.
+        </p>
+
+        <p>
+          C’est pourquoi, nous nous engageons à minimiser notre empreinte environnementale à travers des pratiques de construction durables.
+        </p>
+
+        <p class="mb-0">
+          De la sélection de matériaux respectueux de l’environnement à la gestion des déchets et la propreté des chantiers,
+          nous cherchons à réduire notre impact sur la planète.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+<!-- ===== NOS VALEURS SUPPLEMENTAIRES ===== -->
+<section class="py-5 text-white" style="background:linear-gradient(135deg,#01381e,#3b5d50); margin-top:40px; margin-bottom:40px;">
+<div class="container">
+
+<div class="row align-items-center mb-5">
+
+<div class="col-md-4">
+<h3 class="fw-bold">• Ressources Humaines</h3>
+</div>
+
+<div class="col-md-8">
+<div class="border-start border-4 border-white ps-4">
+<p class="mb-0">
+A CITY FALLOU CITY, nous avons des équipes d’Ingénieur et de Techniciens qualifiés qui par leurs expériences et leur savoir faire mènent à bien chaque projet jusqu'à sa livraison.
+</p>
+</div>
+</div>
+
+</div>
+
+<hr class="border-light">
+
+<div class="row align-items-center mt-5">
+
+<div class="col-md-4">
+<h3 class="fw-bold">• Innovation Continue</h3>
+</div>
+
+<div class="col-md-8">
+<div class="border-start border-4 border-white ps-4">
+
+<p>
+FALLOU City investie dans la Recherche et le développement pour rester à la pointe de l’ingénierie du bâtiment et du génie civil. Chaque projet est une opportunité d’explorer de nouvelles technologies, de repousser les limites de la conception et de proposer des solutions novatrices à nos clients.
+</p>
+
+<p class="mb-0">
+Notre engagement envers l’innovation nous permet de répondre aux besoins changeants de nos clients et de créer des espaces qui évoluent avec le temps.
+</p>
+
+</div>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<!-- ===== NOS SERVICES ===== -->
+<section class="py-5">
+    <div class="container text-center">
+
+        <span class="text-primary fw-bold">NOS SERVICES</span>
+        <h2 class="fw-bold mb-5">Des solutions immobilières complètes</h2>
+
+        <div class="row g-4">
+
+            <!-- Construction -->
+            <div class="col-md-3">
+                <div class="card border-0 shadow-lg p-4 h-100 rounded-4">
+                    <i class="bi bi-hammer display-4 text-primary"></i>
+                    <h5 class="mt-3">Construction</h5>
+                    <p class="text-muted">
+                        Nous réalisons vos projets de construction modernes et durables.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Achat -->
+            <div class="col-md-3">
+                <div class="card border-0 shadow-lg p-4 h-100 rounded-4">
+                    <i class="bi bi-house-door display-4 text-primary"></i>
+                    <h5 class="mt-3">Achat immobilier</h5>
+                    <p class="text-muted">Trouvez la maison idéale.</p>
+                </div>
+            </div>
+
+            <!-- Vente -->
+            <div class="col-md-3">
+                <div class="card border-0 shadow-lg p-4 h-100 rounded-4">
+                    <i class="bi bi-building display-4 text-primary"></i>
+                    <h5 class="mt-3">Vente immobilière</h5>
+                    <p class="text-muted">Vendez rapidement au meilleur prix.</p>
+                </div>
+            </div>
+
+            <!-- Location -->
+            <div class="col-md-3">
+                <div class="card border-0 shadow-lg p-4 h-100 rounded-4">
+                    <i class="bi bi-key display-4 text-primary"></i>
+                    <h5 class="mt-3">Location</h5>
+                    <p class="text-muted">Large choix de biens disponibles.</p>
+                </div>
+            </div>
+            
+
+        </div>
+
+    </div>
+</section>
+<!-- ===== NOS ACTIVITÉS ===== -->
+<section class="py-5 bg-light">
+  <div class="container">
+
+    <div class="text-center mb-5">
+      <h2 class="fw-bold">Nos activités</h2>
+    </div>
+
+    <div class="row g-4">
+
+      <div class="col-md-6">
+        <ul class="list-unstyled fs-5">
+
+          <li class="mb-3">➤ Réalisation et conception de bâtiments haut standing et travaux de génie civil</li>
+
+          <li class="mb-3">➤ Vente d’immeubles et appartements haut standing</li>
+
+          <li class="mb-3">➤ Location d’engins</li>
+
+          <li class="mb-3">➤ Vente d’engins</li>
+
+        </ul>
+      </div>
+
+      <div class="col-md-6">
+        <ul class="list-unstyled fs-5">
+
+          <li class="mb-3">➤ Vente de pièces détachées engins BTP</li>
+
+          <li class="mb-3">➤ Vente de camions</li>
+
+          <li class="mb-3">➤ Vente de voitures haut de gamme</li>
+
+        </ul>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+<section class="py-5">
+  <div class="container">
+
+    <div class="text-center mb-5">
+      <h2 class="fw-bold">Nos équipements</h2>
+      <p class="text-muted">Des moyens matériels modernes pour vos projets</p>
+    </div>
+
+    <div class="row g-4">
+
+      <!-- ENGINS VISIBLES AU DEBUT -->
+      <div class="col-md-3">
+        <div class="card shadow-sm border-0 h-100">
+          <img src="{% static 'images/engin1.jpg' %}" class="card-img-top" style="height:220px; object-fit:cover;">
+          <div class="card-body text-center">
+            <h6 class="fw-bold">Pelle hydraulique</h6>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="card shadow-sm border-0 h-100">
+          <img src="{% static 'images/engin2.jpg' %}" class="card-img-top" style="height:220px; object-fit:cover;">
+          <div class="card-body text-center">
+            <h6 class="fw-bold">Niveleuse CAT 140G</h6>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="card shadow-sm border-0 h-100">
+          <img src="{% static 'images/engin3.jpg' %}" class="card-img-top" style="height:220px; object-fit:cover;">
+          <div class="card-body text-center">
+            <h6 class="fw-bold">Compacteur Dynapac</h6>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="card shadow-sm border-0 h-100">
+          <img src="{% static 'images/engin4.jpg' %}" class="card-img-top" style="height:220px; object-fit:cover;">
+          <div class="card-body text-center">
+            <h6 class="fw-bold">Chargeuse</h6>
+          </div>
+        </div>
+      </div>
+
+      <!-- ENGINS CACHÉS -->
+      <div id="moreEngins" style="display:none;" class="row g-4 mt-1">
+
+        <div class="col-md-3">
+          <div class="card shadow-sm border-0 h-100">
+            <img src="{% static 'images/engin5.jpg' %}" class="card-img-top" style="height:220px; object-fit:cover;">
+            <div class="card-body text-center">
+              <h6 class="fw-bold">Niveleuse Caterpillar</h6>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="card shadow-sm border-0 h-100">
+            <img src="{% static 'images/engin6.jpg' %}" class="card-img-top" style="height:220px; object-fit:cover;">
+            <div class="card-body text-center">
+              <h6 class="fw-bold">Engin chantier</h6>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="card shadow-sm border-0 h-100">
+            <img src="{% static 'images/engin7.jpg' %}" class="card-img-top" style="height:220px; object-fit:cover;">
+            <div class="card-body text-center">
+              <h6 class="fw-bold">Bulldozer</h6>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="card shadow-sm border-0 h-100">
+            <img src="{% static 'images/engin8.jpg' %}" class="card-img-top" style="height:220px; object-fit:cover;">
+            <div class="card-body text-center">
+              <h6 class="fw-bold">Chargeuse lourde</h6>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="card shadow-sm border-0 h-100">
+            <img src="{% static 'images/camion.jpg' %}" class="card-img-top" style="height:220px; object-fit:cover;">
+            <div class="card-body text-center">
+              <h6 class="fw-bold">Camion lourd</h6>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="card shadow-sm border-0 h-100">
+            <img src="{% static 'images/briques.jpg' %}" class="card-img-top" style="height:220px; object-fit:cover;">
+            <div class="card-body text-center">
+              <h6 class="fw-bold">Des briques</h6>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- BOUTON -->
+    <div class="text-center mt-4">
+      <button onclick="toggleEngins()" id="btnEngins" class="btn btn-dark px-4">
+        Voir plus
+      </button>
+    </div>
+
+  </div>
+</section>
+<section class="video-section" onclick="openVideo2(event)" style="cursor:pointer; position:relative;">
+
+  <video autoplay muted loop playsinline class="video-bg" style="width:100%; height:500px; object-fit:cover;">
+    <source src="{% static 'videos/presentation.mp4' %}" type="video/mp4">
+  </video>
+
+  <!-- overlay sombre -->
+  <div style="position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5);"></div>
+
+  <!-- contenu -->
+  <div style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); text-align:center; color:white;">
+    
+    <h1 class="fw-bold">Fallou City</h1>
+    <p>Cliquez pour voir la présentation complète</p>
+
+    <div style="font-size:60px; margin-top:20px;">▶</div>
+
+  </div>
+
+</section>
+
+<!-- MODAL 2 -->
+<div id="videoModal2" style="
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:black;
+z-index:9999;
+justify-content:center;
+align-items:center;
+">
+
+  <span onclick="closeVideo2()" 
+        style="color:white; font-size:40px; position:absolute; top:20px; right:30px; cursor:pointer;">
+    ×
+  </span>
+
+  <video id="fullVideo2" controls autoplay style="max-width:90%; max-height:90%;">
+    <source src="{% static 'videos/presentation.mp4' %}" type="video/mp4">
+  </video>
+
+</div>
+
+<!-- ===== BIENS PHARES ===== -->
+<section class="container my-5">
+  <h2 class="text-center mb-4">Nos biens phares</h2>
+
+  <div class="row g-4">
+    {% for bien in biens %}
+    <div class="col-12 col-sm-6 col-md-4">
+
+      <div class="card shadow-sm h-100">
+
+        <a href="{% url 'detail_propriete' bien.id %}">
+          <img src="{% static 'images/' %}{{ bien.image|default:'house1.jpeg' }}?v=2"
+               class="card-img-top img-fluid"
+               style="width:100%; height:250px; object-fit:cover;">
+        </a>
+
+        <div class="card-body d-flex flex-column">
+          <h5>
+            {{ bien.titre }}
+            <span class="badge bg-success">Vente</span>
+          </h5>
+
+          <p class="text-muted">
+            {{ bien.details|truncatechars:120 }}...
+          </p>
+
+          <div class="mt-auto">
+            <a href="{% url 'detail_propriete' bien.id %}"
+               class="btn btn-primary btn-sm w-100 mb-2">
+              Détails
+            </a>
+
+            <a href="https://wa.me/221768015858?text={{ 'Bonjour je suis intéressé par ce bien: '|add:bien.titre|urlencode }}"
+               class="btn btn-success btn-sm w-100"
+               target="_blank">
+              WhatsApp
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <div class="text-center mt-5">
+    <a href="{% url 'proprietes' %}" class="btn btn-dark btn-lg px-5">
+      Voir plus de propriétés
+    </a>
+  </div>
+</section>
+
+<!-- ===== PARTENAIRES ===== -->
+<section class="py-5 partners-section">
+  <div class="container text-center">
+
+    <h2 class="fw-bold mb-4 text-white">Nos partenaires</h2>
+    <p class="mb-5 text-light">Ils nous font confiance</p>
+
+    <div class="row g-3 align-items-center justify-content-center">
+
+      {% for i in "123456789" %}
+      <div class="col-4 col-md-2">
+        <img src="{% static 'images/image' %}{{ forloop.counter }}.png"
+             class="img-fluid partner-img">
+      </div>
+      {% endfor %}
+
+    </div>
+  </div>
+</section>
+<script>
+function openVideoModal(event) {
+    event.stopPropagation();
+    document.getElementById("videoModal").style.display = "block";
+}
+
+function closeVideoModal() {
+    var video = document.getElementById("fullVideo");
+    video.pause();
+    video.currentTime = 0;
+    document.getElementById("videoModal").style.display = "none";
+}
+</script>
+
+<script>
+function toggleEngins() {
+  var section = document.getElementById("moreEngins");
+  var btn = document.getElementById("btnEngins");
+
+  if (section.style.display === "none") {
+    section.style.display = "flex";
+    btn.innerText = "Voir moins";
+  } else {
+    section.style.display = "none";
+    btn.innerText = "Voir plus";
+  }
+}
+</script>
+
+
+
+<script>
+function openVideo1(e){
+  if(e) e.stopPropagation();
+  document.getElementById("videoModal1").style.display = "block";
+}
+
+function closeVideo1(){
+  let v = document.getElementById("fullVideo1");
+  v.pause();
+  v.currentTime = 0;
+  document.getElementById("videoModal1").style.display = "none";
+}
+
+function openVideo2(e){
+  if(e) e.stopPropagation();
+  document.getElementById("videoModal2").style.display = "block";
+}
+
+function closeVideo2(){
+  let v = document.getElementById("fullVideo2");
+  v.pause();
+  v.currentTime = 0;
+  document.getElementById("videoModal2").style.display = "none";
+}
+</script>
+{% endblock %}

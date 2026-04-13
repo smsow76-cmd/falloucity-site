@@ -1,0 +1,9 @@
+static/videos/# Python
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+
+# Environnements
+venv/
+.env
