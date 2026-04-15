@@ -17,7 +17,7 @@ body {
     height: auto;
     display: flex;
     align-items: center;
-    padding: 3px 0; /* 🔥 réduit hauteur */
+    padding: 3px 0;
 }
 
 .navbar {
@@ -27,35 +27,48 @@ body {
 
 /* LOGO */
 .logo {
-    height: 45px; /* 🔥 réduit taille logo */
+    height: 45px;
     width: auto;
 }
 
 /* TEXTE LOGO */
 .navbar-brand span {
-    font-size: 18px; /* 🔥 réduit texte */
+    font-size: 18px;
     margin-left: 8px;
     color: #fff;
 }
 
 /* MENU */
 .navbar-nav .nav-link {
-    padding: 6px 12px; /* 🔥 réduit hauteur menu */
+    padding: 6px 12px;
     font-size: 15px;
 }
-
 
 /* ===== CAROUSEL ===== */
 #heroCarousel {
     position: relative;
+    max-width: 1200px;
+    margin: 20px auto;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #ffffff; /* 🔥 IMPORTANT: supprime barres grises */
 }
 
-/* Taille légèrement augmentée */
+/* supprime fond interne Bootstrap */
+#heroCarousel .carousel-inner,
+#heroCarousel .carousel-item {
+    background: #000; /* 🔥 fixe zones vides */
+}
+
+/* IMAGE CAROUSEL */
 .carousel-img {
+    width: 100%;
     height: 85vh;
     object-fit: cover;
+    display: block; /* 🔥 IMPORTANT pour enlever micro espaces */
 }
 
+/* zoom effet */
 .carousel-item img {
     transition: transform 5s ease;
 }
@@ -64,25 +77,25 @@ body {
     transform: scale(1.03);
 }
 
-/* Overlay sombre premium */
+/* overlay sombre premium */
 #heroCarousel::before {
-content:'';
-position:absolute;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.35);
-z-index:1;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.35);
+    z-index: 1;
 }
 
-/* TEXTE */
+/* TEXTE CAROUSEL */
 .carousel-text {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    
+
     text-align: center;
     color: white;
     z-index: 10;
@@ -92,9 +105,9 @@ z-index:1;
     border-radius: 10px;
 }
 
-/* ESPACE ENTRE CAROUSEL ET PHILOSOPHIE */
+/* ESPACE HERO */
 .hero-spacing {
-margin-top: 40px;
+    margin-top: 40px;
 }
 
 /* ===== CARD ===== */
@@ -157,28 +170,28 @@ footer {
 @media (max-width: 768px) {
 
 .logo {
-height:40px;
+    height: 40px;
 }
 
 .carousel-img {
-height:65vh;
+    height: 65vh;
 }
 
 .carousel-text h1 {
-font-size:22px;
+    font-size: 22px;
 }
 
 .carousel-text p {
-font-size:14px;
+    font-size: 14px;
 }
 
 .card img {
-height:200px;
+    height: 200px;
 }
 
 .btn {
-width:100%;
-margin-bottom:10px;
+    width: 100%;
+    margin-bottom: 10px;
 }
 
 }
@@ -187,29 +200,29 @@ margin-bottom:10px;
 @media (max-width: 768px) {
 
 .navbar-collapse {
-background:transparent;
+    background: transparent;
 }
 
 .navbar-nav {
-background:#3b5d50;
-padding:5px 10px;
-border-radius:8px;
-width:fit-content;
-margin:10px 0;
+    background: #3b5d50;
+    padding: 5px 10px;
+    border-radius: 8px;
+    width: fit-content;
+    margin: 10px 0;
 }
 
 .navbar-nav .nav-link {
-padding:6px 10px;
-font-size:14px;
-display:block;
+    padding: 6px 10px;
+    font-size: 14px;
+    display: block;
 }
 
 }
 
 .badge {
-border-radius:20px;
-padding:5px 10px;
-font-size:12px;
+    border-radius: 20px;
+    padding: 5px 10px;
+    font-size: 12px;
 }
 
 /* ===== PARTENAIRES ===== */
@@ -245,37 +258,38 @@ font-size:12px;
     left: -80px;
 }
 
-.section-spacing{
-margin-top:60px;
+.section-spacing {
+    margin-top: 60px;
 }
 
-.card:hover{
-transform:translateY(-5px);
-transition:0.3s;
+.card:hover {
+    transform: translateY(-5px);
+    transition: 0.3s;
 }
 
-.partner-img{
-max-height:40px;
-opacity:0.8;
-transition:0.3s;
+/* duplication corrigée */
+.partner-img {
+    max-height: 40px;
+    opacity: 0.8;
+    transition: 0.3s;
 }
 
-.partner-img:hover{
-opacity:1;
-transform:scale(1.05);
+.partner-img:hover {
+    opacity: 1;
+    transform: scale(1.05);
 }
 
-/* espace entre les sections */
+/* espaces sections */
 section {
     padding-top: 40px;
     padding-bottom: 40px;
 }
 
-/* espace spécial hero */
-.hero-spacing{
-margin-top:60px;
-margin-bottom:60px;
+.hero-spacing {
+    margin-top: 60px;
+    margin-bottom: 60px;
 }
+
 .partners-section {
     padding: 30px 0 !important;
 }
@@ -287,7 +301,6 @@ margin-bottom:60px;
     overflow: hidden;
 }
 
-/* vidéo */
 .video-bg {
     position: absolute;
     top: 50%;
@@ -298,18 +311,16 @@ margin-bottom:60px;
     transform: translate(-50%, -50%);
 }
 
-/* overlay sombre */
 .video-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.5); /* 🔥 règle l’intensité ici */
+    background: rgba(0,0,0,0.5);
     z-index: 1;
 }
 
-/* contenu */
 .video-content {
     position: relative;
     z-index: 2;
@@ -318,19 +329,21 @@ margin-bottom:60px;
     padding: 20px;
 }
 
-/* responsive */
+/* responsive video */
 @media (max-width: 768px) {
-    .video-section {
-        height: 60vh;
-    }
 
-    .video-content h1 {
-        font-size: 24px;
-    }
+.video-section {
+    height: 60vh;
+}
 
-    .video-content p {
-        font-size: 14px;
-    }
+.video-content h1 {
+    font-size: 24px;
+}
+
+.video-content p {
+    font-size: 14px;
+}
+
 }
 
 /* ===== MODAL VIDEO ===== */
@@ -345,7 +358,6 @@ margin-bottom:60px;
     background: rgba(0,0,0,0.9);
 }
 
-/* contenu */
 .video-modal-content {
     position: relative;
     margin: 5% auto;
@@ -354,20 +366,17 @@ margin-bottom:60px;
     text-align: center;
 }
 
-/* vidéo */
 .video-modal video {
     width: 100%;
     border-radius: 10px;
 }
 
-/* texte */
 .video-description {
     color: white;
     margin-top: 15px;
     font-size: 16px;
 }
 
-/* bouton fermer */
 .close-btn {
     position: absolute;
     top: 20px;
@@ -377,17 +386,19 @@ margin-bottom:60px;
     cursor: pointer;
 }
 
-/* responsive */
 @media (max-width: 768px) {
-    .video-modal-content {
-        margin-top: 20%;
-    }
 
-    .video-description {
-        font-size: 14px;
-    }
+.video-modal-content {
+    margin-top: 20%;
 }
 
+.video-description {
+    font-size: 14px;
+}
 
+}
 
-
+/* ===== FIX FINAL CAROUSEL ===== */
+.carousel-img {
+    vertical-align: middle; /* 🔥 corrige micro espaces blancs */
+}
