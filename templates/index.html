@@ -5,6 +5,42 @@
 
 <!-- ===== CARROUSEL ===== -->
 <section id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+
+  <style>
+  #heroCarousel .carousel-item {
+    height: 500px;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #heroCarousel .carousel-img {
+    width: auto;
+    height: 100%;
+    max-width: 100%;
+    object-fit: cover;;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    #heroCarousel .carousel-item {
+      height: 350px;
+    }
+  }
+
+  /* Texte */
+  #heroCarousel .carousel-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+  }
+</style>
+
   <div class="carousel-inner">
 
     {% for img in images %}
@@ -18,10 +54,11 @@
   <div class="carousel-text text-center text-white">
     <h1 class="fw-bold">Fallou City</h1>
     <p>Découvrez nos biens de rêve</p>
-    <a href="{% url 'proprietes' %}" class="btn btn-primary btn-lg">
-      Voir les propriétés
+    <a href="{% url 'contact' %}" class="btn btn-primary btn-lg">
+      contactez-nous
     </a>
   </div>
+
 </section>
 <!-- ===== PRESENTATION ENTREPRISE ===== -->
 <section class="py-5 bg-light">
@@ -80,7 +117,7 @@
           </a>
 
           <a href="https://wa.me/221768015858" class="btn btn-outline-dark btn-lg">
-            Contact
+            Contactez nous
           </a>
         </div>
       </div>
@@ -145,30 +182,57 @@ z-index:9999;
 
 
 
-<!-- ===== PHILOSOPHIE ET VALEURS ===== -->
-<section class="py-4 text-white hero-spacing" style="background:linear-gradient(135deg,#01381e,#3b5d50);">
+<!-- ===== PHILOSOPHIE ET VALEURS (VERSION MODERNE) ===== -->
+<section class="py-5 text-white" style="background:linear-gradient(135deg,#01381e,#3b5d50);">
   <div class="container">
-    <div class="row align-items-center g-4">
+    <div class="row align-items-center g-3">
 
+      <!-- TEXTE -->
       <div class="col-lg-6">
-        <h3 class="fw-bold mb-3">Notre philosophie</h3>
-        <p>Réaliser des prestations de qualité dans une recherche constante de satisfaction du client.</p>
+        <h3 class="fw-bold mb-3 border-start border-4 ps-3" style="border-color:#00c896;">
+          Notre philosophie
+        </h3>
 
-        <h5 class="mt-3">Nos valeurs</h5>
-        <ul class="list-unstyled mb-0">
-          <li>✔ Savoir-faire et Qualité</li>
-          <li>✔ Engagement</li>
-          <li>✔ Disponibilité</li>
-          <li>✔ Responsabilité</li>
-          <li>✔ Confiance</li>
-          <li>✔ Proximité</li>
-        </ul>
+        <p class="mb-3" style="opacity:0.9;">
+          Réaliser des prestations de qualité dans une recherche constante de satisfaction du client.
+        </p>
+
+        <h5 class="mt-4 mb-3">Nos valeurs</h5>
+
+        <div class="row">
+          <div class="col-6">
+            <p class="mb-2">✔ Savoir-faire</p>
+            <p class="mb-2">✔ Engagement</p>
+            <p class="mb-2">✔ Disponibilité</p>
+          </div>
+
+          <div class="col-6">
+            <p class="mb-2">✔ Responsabilité</p>
+            <p class="mb-2">✔ Confiance</p>
+            <p class="mb-2">✔ Proximité</p>
+          </div>
+        </div>
       </div>
 
-      <div class="col-lg-6 text-center">
-        <img src="{% static 'images/house2.jpeg' %}"
-             class="img-fluid rounded shadow-lg"
-             style="max-height:300px; object-fit:cover;">
+      <!-- IMAGE -->
+      <div class="col-lg-6">
+        <div class="position-relative">
+          <img src="{% static 'images/house2.jpeg' %}"
+              class="img-fluid rounded-4 shadow"
+              style="max-height:280px; width:auto;">
+
+          <!-- PETIT EFFET OVERLAY -->
+          <div style="
+              position:absolute;
+              bottom:10px;
+              left:10px;
+              background:rgba(0,0,0,0.6);
+              padding:8px 15px;
+              border-radius:10px;
+              font-size:14px;">
+              Fallou Immobilier
+          </div>
+        </div>
       </div>
 
     </div>
@@ -188,7 +252,7 @@ z-index:9999;
 </section>
 
 <!-- ===== NOS ENGAGEMENTS ===== -->
-<section class="py-5 text-white" style="background:linear-gradient(135deg,#01381e,#3b5d50);">
+<section class="py-5 text-white" style="background:linear-gradient(135deg,#66dba4,#3b5d50);">
   <div class="container">
 
     <div class="text-center mb-5">
@@ -258,58 +322,13 @@ z-index:9999;
 
   </div>
 </section>
-<!-- ===== NOS VALEURS SUPPLEMENTAIRES ===== -->
-<section class="py-5 text-white" style="background:linear-gradient(135deg,#01381e,#3b5d50); margin-top:40px; margin-bottom:40px;">
-<div class="container">
 
-<div class="row align-items-center mb-5">
-
-<div class="col-md-4">
-<h3 class="fw-bold">• Ressources Humaines</h3>
-</div>
-
-<div class="col-md-8">
-<div class="border-start border-4 border-white ps-4">
-<p class="mb-0">
-A CITY FALLOU CITY, nous avons des équipes d’Ingénieur et de Techniciens qualifiés qui par leurs expériences et leur savoir faire mènent à bien chaque projet jusqu'à sa livraison.
-</p>
-</div>
-</div>
-
-</div>
-
-<hr class="border-light">
-
-<div class="row align-items-center mt-5">
-
-<div class="col-md-4">
-<h3 class="fw-bold">• Innovation Continue</h3>
-</div>
-
-<div class="col-md-8">
-<div class="border-start border-4 border-white ps-4">
-
-<p>
-FALLOU City investie dans la Recherche et le développement pour rester à la pointe de l’ingénierie du bâtiment et du génie civil. Chaque projet est une opportunité d’explorer de nouvelles technologies, de repousser les limites de la conception et de proposer des solutions novatrices à nos clients.
-</p>
-
-<p class="mb-0">
-Notre engagement envers l’innovation nous permet de répondre aux besoins changeants de nos clients et de créer des espaces qui évoluent avec le temps.
-</p>
-
-</div>
-</div>
-
-</div>
-
-</div>
-</section>
 
 <!-- ===== NOS SERVICES ===== -->
 <section class="py-5">
     <div class="container text-center">
 
-        <span class="text-primary fw-bold">NOS SERVICES</span>
+        <span style="color: #000000;" class="fw-bold mb-5">NOS SERVICES</span>
         <h2 class="fw-bold mb-5">Des solutions immobilières complètes</h2>
 
         <div class="row g-4">
@@ -586,6 +605,55 @@ Notre engagement envers l’innovation nous permet de répondre aux besoins chan
 
   </div>
 </section>
+
+<!-- ===== NOS VALEURS SUPPLEMENTAIRES ===== -->
+<section class="py-5 text-white" style="background:linear-gradient(135deg,#01381e,#3b5d50); margin-top:40px; margin-bottom:40px;">
+<div class="container">
+
+<div class="row align-items-center mb-5">
+
+<div class="col-md-4">
+<h3 class="fw-bold">• Ressources Humaines</h3>
+</div>
+
+<div class="col-md-8">
+<div class="border-start border-4 border-white ps-4">
+<p class="mb-0">
+A FALLOU City, nous avons des équipes d’Ingénieur et de Techniciens qualifiés qui par leurs expériences et leur savoir faire mènent à bien chaque projet jusqu'à sa livraison.
+</p>
+</div>
+</div>
+
+</div>
+
+<hr class="border-light">
+
+<div class="row align-items-center mt-5">
+
+<div class="col-md-4">
+<h3 class="fw-bold">• Innovation Continue</h3>
+</div>
+
+<div class="col-md-8">
+<div class="border-start border-4 border-white ps-4">
+
+<p>
+FALLOU City investit dans la Recherche et le développement pour rester à la pointe de l’ingénierie du bâtiment et du génie civil. Chaque projet est une opportunité d’explorer de nouvelles technologies, de repousser les limites de la conception et de proposer des solutions novatrices à nos clients.
+</p>
+
+<p class="mb-0">
+Notre engagement envers l’innovation nous permet de répondre aux besoins changeants de nos clients et de créer des espaces qui évoluent avec le temps.
+</p>
+
+</div>
+</div>
+
+</div>
+
+</div>
+</section>
+
+
 <section class="video-section" onclick="openVideo2(event)" style="cursor:pointer; position:relative;">
 
   <video autoplay muted loop playsinline class="video-bg" style="width:100%; height:500px; object-fit:cover;">
@@ -693,7 +761,7 @@ align-items:center;
 
     <div class="row g-3 align-items-center justify-content-center">
 
-      {% for i in "123456789" %}
+      {% for i in "12345678910" %}
       <div class="col-4 col-md-2">
         <img src="{% static 'images/image' %}{{ forloop.counter }}.png"
              class="img-fluid partner-img">
@@ -703,6 +771,7 @@ align-items:center;
     </div>
   </div>
 </section>
+<br>
 <script>
 function openVideoModal(event) {
     event.stopPropagation();

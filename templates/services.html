@@ -1,14 +1,128 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
-<div class="container text-center my-5">
-    <h1>Nos Services</h1>
-    <p>Nous proposons :</p>
-    <ul class="list-unstyled">
-        <li>Achat de biens immobiliers</li>
-        <li>Vente de propriétés</li>
-        <li>Location de maisons et appartements</li>
-    </ul>
-    
-</div>
+
+<section class="py-5" style="background:#f6f7fb;">
+  <div class="container">
+
+    <!-- TITRE -->
+    <div class="text-center mb-5">
+      <h1 class="fw-bold">Nos Services</h1>
+      <p class="text-muted">
+        Immobilier • Construction • Engins de chantier
+      </p>
+    </div>
+
+    <!-- SERVICES -->
+    <div class="row g-4">
+
+      <!-- CONSTRUCTION (PRIORITÉ) -->
+      <div class="col-md-6">
+        <div class="card border-0 shadow-sm h-100 service-card">
+          
+          <img src="{% static 'images/house16.jpeg' %}" 
+               class="card-img-top"
+               style="height:220px; object-fit:cover;">
+
+          <div class="card-body">
+            <h4 class="fw-bold">🏗️ Construction</h4>
+            <p class="text-muted">
+              Réalisation de projets de construction modernes, solides et durables avec des matériaux de qualité.
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- COLONNE DROITE -->
+      <div class="col-md-6">
+
+        <div class="row g-3">
+
+          <div class="col-12">
+            <div class="p-3 bg-white shadow-sm rounded service-mini">
+              <h5 class="fw-bold">🚜 Engins de chantier</h5>
+              <p class="text-muted mb-0">Location et vente d’engins pour vos travaux.</p>
+            </div>
+          </div>
+
+          <div class="col-12">
+            <div class="p-3 bg-white shadow-sm rounded service-mini">
+              <h5 class="fw-bold">🏠 Achat de biens</h5>
+              <p class="text-muted mb-0">Accompagnement pour trouver le bien idéal.</p>
+            </div>
+          </div>
+
+          <div class="col-12">
+            <div class="p-3 bg-white shadow-sm rounded service-mini">
+              <h5 class="fw-bold">💰 Vente de propriétés</h5>
+              <p class="text-muted mb-0">Vente rapide et sécurisée de vos biens.</p>
+            </div>
+          </div>
+
+          <div class="col-12">
+            <div class="p-3 bg-white shadow-sm rounded service-mini">
+              <h5 class="fw-bold">🏢 Location</h5>
+              <p class="text-muted mb-0">Maisons et appartements disponibles.</p>
+            </div>
+          </div>
+
+          <div class="col-12">
+            <div class="p-3 bg-white shadow-sm rounded service-mini">
+              <h5 class="fw-bold">🤝 Accompagnement</h5>
+              <p class="text-muted mb-0">Suivi complet de votre projet immobilier ou BTP.</p>
+            </div>
+          </div>
+
+          <div class="col-12">
+            <div class="p-3 bg-white shadow-sm rounded service-mini">
+              <h5 class="fw-bold">📊 Conseil & Gestion</h5>
+              <p class="text-muted mb-0">Optimisation et gestion de vos biens.</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center mt-5">
+      <a href="{% url 'contact' %}" class="btn btn-dark px-4 py-2">
+        Nous contacter
+      </a>
+
+      <a href="https://wa.me/221768015858" class="btn btn-success px-4 py-2 ms-2">
+        WhatsApp
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- STYLE -->
+<style>
+.service-card {
+  border-radius: 15px;
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.service-mini {
+  transition: 0.3s;
+  border-left: 4px solid #198754;
+}
+
+.service-mini:hover {
+  transform: translateX(5px);
+}
+</style>
+
 {% endblock %}
