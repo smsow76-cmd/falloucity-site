@@ -1,0 +1,8 @@
+User-agent: *
+Disallow: /services/
+Disallow: /contact/
+Disallow: /proprietes/
+
+Allow: /
+
+Sitemap: https://falloucity.com/sitemap.xml
