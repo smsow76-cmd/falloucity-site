@@ -16,9 +16,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # 🔐 sécurité
 SECRET_KEY = 'django-insecure-change-this-key'
 
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['*']# ✅ apps
+ALLOWED_HOSTS = [
+    "falloucity.com",
+    "www.falloucity.com",
+]
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
